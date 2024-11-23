@@ -8,3 +8,8 @@ figures:
     description: This is a plot of the data.
     path: figures/plot.png
     stage: plot
+notebooks:
+  - path: notebook.ipynb
+    title: Pipeline notebook
+    description: This notebook is also a DVC pipeline.
+    stage: notebook-to-html

@@ -13,3 +13,15 @@ stages:
     outs:
     - .calkit/notebook-stages/plot/outs/fig.pickle
     - figures/plot.png
+  notebook-to-html:
+    cmd: calkit nb execute --to html notebook.ipynb
+    deps:
+    - notebook.ipynb
+    outs:
+    - .calkit/notebooks/html/notebook.html
+    meta:
+      calkit:
+        type: notebook
+        path: notebook.ipynb
+        title: Pipeline notebook
+        description: This notebook is also a DVC pipeline.

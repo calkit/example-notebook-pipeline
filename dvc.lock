@@ -32,3 +32,15 @@ stages:
       hash: md5
       md5: f17a8c3d6436659199984f2e15fa3895
       size: 33917
+  notebook-to-html:
+    cmd: calkit nb execute --to html notebook.ipynb
+    deps:
+    - path: notebook.ipynb
+      hash: md5
+      md5: 3bdad9e3de6f06f9a36799ad09f90f0f
+      size: 53439
+    outs:
+    - path: .calkit/notebooks/html/notebook.html
+      hash: md5
+      md5: 7984eac383b8085a6192d8f7bd073f6e
+      size: 3936634
