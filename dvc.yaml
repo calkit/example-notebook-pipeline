@@ -1,0 +1,15 @@
+stages:
+  get-data:
+    cmd: python '.calkit/notebook-stages/get-data/script.py'
+    deps:
+    - .calkit/notebook-stages/get-data/script.py
+    outs:
+    - .calkit/notebook-stages/get-data/outs/df.parquet
+  plot:
+    cmd: python '.calkit/notebook-stages/plot/script.py'
+    deps:
+    - .calkit/notebook-stages/get-data/outs/df.parquet
+    - .calkit/notebook-stages/plot/script.py
+    outs:
+    - .calkit/notebook-stages/plot/outs/fig.pickle
+    - figures/plot.png

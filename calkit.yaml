@@ -1,0 +1,10 @@
+datasets:
+  - title: The data
+    description: This is just some test data.
+    path: .calkit/notebook-stages/get-data/outs/df.parquet
+    stage: get-data
+figures:
+  - title: A plot of the data
+    description: This is a plot of the data.
+    path: figures/plot.png
+    stage: plot
