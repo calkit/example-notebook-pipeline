@@ -82,5 +82,5 @@ stages:
     outs:
     - path: .calkit/notebooks/executed/notebook.ipynb
       hash: md5
-      md5: 2ea8633e6ea6fb3d84edb27abfa881b2
+      md5: 9aab6e2bc27b7cf399271accaac3246b
       size: 29407
