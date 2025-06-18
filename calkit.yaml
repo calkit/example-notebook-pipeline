@@ -1,3 +1,18 @@
+environments:
+  main:
+    kind: uv-venv
+    path: requirements.txt
+    python: "3.13"
+    prefix: ".venv"
+pipeline:
+  stages:
+    run-notebook:
+      kind: jupyter-notebook
+      notebook_path: notebook.ipynb
+      environment: main
+      html_storage: dvc
+      cleaned_ipynb_storage:
+      executed_ipynb_storage:
 datasets:
   - title: The data
     description: This is just some test data.
@@ -11,5 +26,6 @@ figures:
 notebooks:
   - path: notebook.ipynb
     title: Pipeline notebook
-    description: This notebook is also a DVC pipeline.
-    stage: notebook-to-html
+    description: This notebook uses DVC pipeline stages to speed up 
+      execution.
+    stage: run-notebook

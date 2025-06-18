@@ -1,0 +1,8 @@
+pandas
+matplotlib
+numpy
+ipykernel
+pyarrow
+plotly>=6
+kaleido
+calkit-python>=0.24.0
