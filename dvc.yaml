@@ -28,6 +28,8 @@ stages:
     outs:
     - .calkit/notebooks/executed/notebook.ipynb:
         cache: false
+    - .calkit/notebooks/html/notebook.html:
+        cache: true
     desc: Automatically generated from the 'run-notebook' stage in calkit.yaml. 
       Changes made here will be overwritten.
   get-data:

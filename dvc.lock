@@ -17,13 +17,13 @@ stages:
     deps:
     - path: notebook.ipynb
       hash: md5
-      md5: af98afd3bd1fa2cb81883b3b568d172f
-      size: 53660
+      md5: 50e42911e9cac47684084a71486666e7
+      size: 53861
     outs:
     - path: .calkit/notebooks/cleaned/notebook.ipynb
       hash: md5
-      md5: 2a74e2c5e8f7114a9413d056b1c91656
-      size: 2196
+      md5: ff63fb0b1ef9089541169ea0dd6086ee
+      size: 2397
   get-data:
     cmd: calkit xenv -n main -- python ".calkit/notebook-stages/get-data/script.py"
     deps:
@@ -65,10 +65,14 @@ stages:
       size: 3090
     - path: .calkit/notebooks/cleaned/notebook.ipynb
       hash: md5
-      md5: 2a74e2c5e8f7114a9413d056b1c91656
-      size: 2196
+      md5: ff63fb0b1ef9089541169ea0dd6086ee
+      size: 2397
     outs:
     - path: .calkit/notebooks/executed/notebook.ipynb
       hash: md5
-      md5: 033f49eaf52b934713dde97c7738fd5c
-      size: 29575
+      md5: 175ba7ac47fd31bcac6c0a53b9b8559f
+      size: 29608
+    - path: .calkit/notebooks/html/notebook.html
+      hash: md5
+      md5: 0e74c4587a4e623f92b199c179fc2a10
+      size: 275314
