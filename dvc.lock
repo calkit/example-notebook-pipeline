@@ -1,5 +1,29 @@
 schema: '2.0'
 stages:
+  _check-env-main:
+    cmd: calkit check environment --name main
+    deps:
+    - path: requirements.txt
+      hash: md5
+      md5: 71b70ae67fe5d25ea43a603ebd55ce97
+      size: 82
+    outs:
+    - path: .calkit/env-locks/main.txt
+      hash: md5
+      md5: d7690597a33ac72cd9fde4fd9274c2b6
+      size: 3090
+  _clean-nb-run-notebook:
+    cmd: calkit nb clean "notebook.ipynb"
+    deps:
+    - path: notebook.ipynb
+      hash: md5
+      md5: af98afd3bd1fa2cb81883b3b568d172f
+      size: 53660
+    outs:
+    - path: .calkit/notebooks/cleaned/notebook.ipynb
+      hash: md5
+      md5: 2a74e2c5e8f7114a9413d056b1c91656
+      size: 2196
   get-data:
     cmd: calkit xenv -n main -- python ".calkit/notebook-stages/get-data/script.py"
     deps:
@@ -32,42 +56,6 @@ stages:
       hash: md5
       md5: f17a8c3d6436659199984f2e15fa3895
       size: 33917
-  notebook-to-html:
-    cmd: calkit nb execute --to html notebook.ipynb
-    deps:
-    - path: notebook.ipynb
-      hash: md5
-      md5: 3bdad9e3de6f06f9a36799ad09f90f0f
-      size: 53439
-    outs:
-    - path: .calkit/notebooks/html/notebook.html
-      hash: md5
-      md5: 7984eac383b8085a6192d8f7bd073f6e
-      size: 3936634
-  _check-env-main:
-    cmd: calkit check environment --name main
-    deps:
-    - path: requirements.txt
-      hash: md5
-      md5: 71b70ae67fe5d25ea43a603ebd55ce97
-      size: 82
-    outs:
-    - path: .calkit/env-locks/main.txt
-      hash: md5
-      md5: d7690597a33ac72cd9fde4fd9274c2b6
-      size: 3090
-  _clean-nb-run-notebook:
-    cmd: calkit nb clean "notebook.ipynb"
-    deps:
-    - path: notebook.ipynb
-      hash: md5
-      md5: af98afd3bd1fa2cb81883b3b568d172f
-      size: 53660
-    outs:
-    - path: .calkit/notebooks/cleaned/notebook.ipynb
-      hash: md5
-      md5: 2a74e2c5e8f7114a9413d056b1c91656
-      size: 2196
   run-notebook:
     cmd: calkit nb execute --environment main --no-check --to html "notebook.ipynb"
     deps:
@@ -82,5 +70,5 @@ stages:
     outs:
     - path: .calkit/notebooks/executed/notebook.ipynb
       hash: md5
-      md5: 9aab6e2bc27b7cf399271accaac3246b
-      size: 29407
+      md5: 033f49eaf52b934713dde97c7738fd5c
+      size: 29575
