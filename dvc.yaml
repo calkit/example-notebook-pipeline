@@ -1,27 +1,28 @@
 stages:
   run-notebook:
-    cmd: calkit nb execute --environment main --no-check --language python --to 
-      html "notebook.ipynb"
+    cmd: calkit nb execute --environment main --no-check --language 
+      python --to html "notebook.ipynb"
     deps:
-    - .calkit/notebooks/cleaned/notebook.ipynb
-    - .calkit/env-locks/main
+      - .calkit/notebooks/cleaned/notebook.ipynb
+      - .calkit/env-locks/main
     outs:
-    - .calkit/notebooks/html/notebook.html:
-        cache: true
-    desc: Automatically generated from the 'run-notebook' stage in calkit.yaml. 
-      Changes made here will be overwritten.
+      - .calkit/notebooks/html/notebook.html:
+          cache: true
+    desc: Automatically generated from the 'run-notebook' stage in 
+      calkit.yaml. Changes made here will be overwritten.
   get-data:
     cmd: calkit xenv -n main -- python 
       ".calkit/notebook-stages/get-data/script.py"
     deps:
-    - .calkit/notebook-stages/get-data/script.py
+      - .calkit/notebook-stages/get-data/script.py
     outs:
-    - .calkit/notebook-stages/get-data/outs/df.parquet
+      - .calkit/notebook-stages/get-data/outs/df.parquet
   plot:
-    cmd: calkit xenv -n main -- python ".calkit/notebook-stages/plot/script.py"
+    cmd: calkit xenv -n main -- python 
+      ".calkit/notebook-stages/plot/script.py"
     deps:
-    - .calkit/notebook-stages/get-data/outs/df.parquet
-    - .calkit/notebook-stages/plot/script.py
+      - .calkit/notebook-stages/get-data/outs/df.parquet
+      - .calkit/notebook-stages/plot/script.py
     outs:
-    - .calkit/notebook-stages/plot/outs/fig.pickle
-    - figures/plot.png
+      - .calkit/notebook-stages/plot/outs/fig.pickle
+      - figures/plot.png
