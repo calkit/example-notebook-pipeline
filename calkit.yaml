@@ -26,7 +26,7 @@ figures:
 notebooks:
   - path: notebook.ipynb
     title: Pipeline notebook
-    description: This notebook uses DVC pipeline stages to speed up
+    description: This notebook uses DVC pipeline stages to speed up 
       execution.
     stage: run-notebook
 showcase:

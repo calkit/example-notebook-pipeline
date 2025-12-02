@@ -25,7 +25,8 @@ stages:
       md5: ff63fb0b1ef9089541169ea0dd6086ee
       size: 2397
   get-data:
-    cmd: calkit xenv -n main -- python ".calkit/notebook-stages/get-data/script.py"
+    cmd: calkit xenv -n main -- python 
+      ".calkit/notebook-stages/get-data/script.py"
     deps:
     - path: .calkit/notebook-stages/get-data/script.py
       hash: md5
@@ -57,22 +58,20 @@ stages:
       md5: f17a8c3d6436659199984f2e15fa3895
       size: 33917
   run-notebook:
-    cmd: calkit nb execute --environment main --no-check --to html "notebook.ipynb"
+    cmd: calkit nb execute --environment main --no-check --language python --to 
+      html "notebook.ipynb"
     deps:
-    - path: .calkit/env-locks/main.txt
+    - path: .calkit/env-locks/main
       hash: md5
-      md5: d7690597a33ac72cd9fde4fd9274c2b6
-      size: 3090
+      md5: 8990c1a5318830e344cb098aff8e611c.dir
+      size: 3719
+      nfiles: 1
     - path: .calkit/notebooks/cleaned/notebook.ipynb
       hash: md5
-      md5: ff63fb0b1ef9089541169ea0dd6086ee
-      size: 2397
+      md5: 1ccd5fbac9acc3da193699720e3ff579
+      size: 2301
     outs:
-    - path: .calkit/notebooks/executed/notebook.ipynb
-      hash: md5
-      md5: 175ba7ac47fd31bcac6c0a53b9b8559f
-      size: 29608
     - path: .calkit/notebooks/html/notebook.html
       hash: md5
-      md5: 0e74c4587a4e623f92b199c179fc2a10
-      size: 275314
+      md5: 6b0a43dae4e4b11a94d00bb9b47b6802
+      size: 275446
